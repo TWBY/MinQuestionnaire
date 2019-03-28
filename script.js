@@ -108,18 +108,21 @@ var quests = [{
     },
 ];
 
-var resu = ["resultA", "resultB", "resultC"];
-
+var everytype = {
+                resultA: '',
+                resultB: '',         
+                resultC: '',
+}
 
 var vm = new Vue({
     el: '#app',
     data: {
         questions: quests,
-        
-        resultA: '',
-        resultB: '',
-        resultC: '',
-        result: '',
+        result: everytype,
+        // resultA: '',
+        // resultB: '',
+        // resultC: '',
+        // result: '',
     },
     computed: {
 
@@ -137,20 +140,21 @@ var vm = new Vue({
 
             //計算三個屬性的大小
             if (ans) {
-                this.resultA = this.sum('A');
-                this.resultB = this.sum('B');
-                this.resultC = this.sum('C');    
+                this.result.resultA = this.sum('A');
+                this.result.resultB = this.sum('B');
+                this.result.resultC = this.sum('C'); 
+                console.log(this.result.resultA)   
             } else {
                 alert('你尚未完成所有問題');
             }
 
             //比較誰是最大的
-            var max = 0
-            if(this.resultA > this.resultB){
-                return this.result = this.resultA;
-            }else{
-                return this.result = this.resultB;
-            }   
+            // var max = 0
+            // if(this.resultA > this.resultB){
+            //     return this.result = this.resultA;
+            // }else{
+            //     return this.result = this.resultB;
+            // }   
 
         },
 
