@@ -1,116 +1,5 @@
 
-
-// var quests = [{
-//         quest: '這是第一題(A)',
-//         options: [{
-//                 value: 1
-//             },
-//             {
-//                 value: 2
-//             },
-//             {
-//                 value: 3
-//             },
-//             {
-//                 value: 4
-//             },
-//         ],
-//         selected: 1,
-//         type: 'A',
-//     },
-//     {
-//         quest: '這是第二題(B)',
-//         options: [{
-//                 value: 1
-//             },
-//             {
-//                 value: 2
-//             },
-//             {
-//                 value: 3
-//             },
-//             {
-//                 value: 4
-//             },
-//         ],
-//         selected: 1,
-//         type: 'B',
-//     },
-//     {
-//         quest: '這是第三題(B)',
-//         options: [{
-//                 value: 1
-//             },
-//             {
-//                 value: 2
-//             },
-//             {
-//                 value: 3
-//             },
-//             {
-//                 value: 4
-//             },
-//         ],
-//         selected: null,
-//         type: 'B'
-//     },
-//     {
-//         quest: '這是第四題(C)',
-//         options: [{
-//                 value: 1
-//             },
-//             {
-//                 value: 2
-//             },
-//             {
-//                 value: 3
-//             },
-//             {
-//                 value: 4
-//             },
-//         ],
-//         selected: 3,
-//         type: 'C',
-//     },
-//     {
-//         quest: '這是第五題(C)',
-//         options: [{
-//                 value: 1
-//             },
-//             {
-//                 value: 2
-//             },
-//             {
-//                 value: 3
-//             },
-//             {
-//                 value: 4
-//             },
-//         ],
-//         selected: null,
-//         type: 'C',
-//     },
-//     {
-//         quest: '這是第六題(A)',
-//         options: [{
-//                 value: 1
-//             },
-//             {
-//                 value: 2
-//             },
-//             {
-//                 value: 3
-//             },
-//             {
-//                 value: 4
-//             },
-//         ],
-//         selected: null,
-//         type: 'A',
-//     },
-// ];
-
-var everytype = {
+let everytype = {
                 resultA: '',
                 resultB: '',         
                 resultC: '',
@@ -122,10 +11,12 @@ function getKeyByValue(object, value) {
 
 var vm = new Vue({
     el: '#app',
-    data: {
-        questions: '',
-        result: everytype,
-        type: '',
+    data: function(){
+        return {
+            questions: '',
+            result: everytype,
+            type: '',
+        }
     },
     created(){
         axios
@@ -169,14 +60,14 @@ var vm = new Vue({
 
         //計算每一個type的時候
         sum: function(type){
-            var total = 0
+            let total = 0
             this.questions.forEach(function(val){
                 if(val.type == type){
                     total += val.selected;
                 }
             });
             return total;
-        },
+        },        
 
         reset: function () {
             this.questions.forEach(function (val) {
