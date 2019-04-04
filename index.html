@@ -23,6 +23,14 @@
       <h3>B = {{ result.resultB }}</h3>
       <h3>C = {{ result.resultC }}</h3>
       <h3>type = {{ type }}</h3>
+      <li v-for="(step, key, index) in steps">{{ index }} . {{ step }}</li>
+      <div class="book" v-for="book in books">
+        <hr/><img v-bind:src="book.img"/>
+        <div class="infos"><a v-bind:href="book.link_book" target="_blank"> {{ book.name }}</a>
+          <h4>Author: {{ book.author }}</h4>
+          <h4>Intro: {{ book.intro }}</h4>
+        </div>
+      </div>
     </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

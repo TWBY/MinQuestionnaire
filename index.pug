@@ -27,12 +27,19 @@ html(lang="en")
 
             h3 type = {{ type }}
 
-            //- h3 most big is = {{ result }}
-
-
+            li(v-for='(step, key, index) in steps') {{ index }} . {{ step }}
+            .book(v-for='book in books')
+                hr
+                img(v-bind:src="book.img")
+                .infos
+                    a(v-bind:href="book.link_book"  target="_blank")  {{ book.name }}
+                    h4 Author: {{ book.author }}
+                    h4 Intro: {{ book.intro }}
 
 
     script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js")
     script(src="script.js")
+
+
 
