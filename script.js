@@ -1,14 +1,14 @@
-
+//resultA/resultB/resultC
 let everytype = {
-                resultA: '',
-                resultB: '',
-                resultC: '',
+    resultA: '',
+    resultB: '',
+    resultC: '',
 }
 
 
+
 //everystep =  [{},{},{}]
-let step = [
-    {
+let step = [{
         one: "step(A)1",
         two: "step(A)2",
         three: "step(A)3",
@@ -34,8 +34,7 @@ let step = [
 
 //bookdata = [[],[]],[]]
 let bookdata = [
-    [
-        {
+    [{
             name: "惡搞也能出頭天：Action！網路短劇天團這群人TGOP的幕後奇想、技藝、創作實驗室",
             author: "這群人TGOP",
             img: "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/072/88/0010728840.jpg&v=57cfec46&w=348&h=348",
@@ -50,8 +49,7 @@ let bookdata = [
             intro: "構腳不從文意都小大女用買想續臺是議英冷人手千公多地們了度長議然新食班二取隊來，唱看世器化速是人非？"
         }
     ],
-    [
-        {
+    [{
             name: "好音樂的科學：破解基礎樂理和美妙旋律的音階秘密",
             author: "約翰‧包威爾",
             img: "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/071/87/0010718777.jpg&v=5756a26b&w=348&h=348",
@@ -67,8 +65,7 @@ let bookdata = [
         }
 
     ],
-    [
-        {
+    [{
             name: "手寫英文書法聖經：從握筆、筆順到數字、符號，全方位掌握藝術美字書寫技法。",
             author: "Julien Chazal",
             img: "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/071/98/0010719843.jpg&v=57c7bcda&w=348&h=348",
@@ -93,19 +90,20 @@ function getKeyByValue(object, value) {
 
 var vm = new Vue({
     el: '#app',
-    data: function(){
+    data: function () {
         return {
             questions: '',
-            result: everytype,
-            type: '',
+            result: everytype, //A,B,C
+            type: '', //測驗結果 A
             steps: '',
             books: ''
         }
     },
-    created(){
+    created() {
         axios
             .get('quest.json')
-            .then(val => {this.questions = val.data
+            .then(val => {
+                this.questions = val.data
             })
 
     },
@@ -125,19 +123,32 @@ var vm = new Vue({
 
             //計算三個屬性的大小
             if (ans) {
-                this.result.resultA = this.sum('A');
-                this.result.resultB = this.sum('B');
-                this.result.resultC = this.sum('C'); 
+                var totalA = 0;
+                var totalB = 0;
+                var totalC = 0;
+                this.questions.forEach(function (val) {
+                    if (val.selected === "A") {
+                        totalA++;
+                    } else if (val.selected === "B") {
+                        totalB++;
+                    } else {
+                        totalC++;
+                    }
+                });
+                this.result.resultA = totalA;
+                this.result.resultB = totalB;
+                this.result.resultC = totalC;
             } else {
                 alert('你尚未完成所有問題');
             }
 
             this.mostbig();
             this.SwitchType(this.type.substring(6));
-            // console.log(this.type.substring(6))
+
 
         },
-        mostbig: function(){
+        //找到最大值
+        mostbig: function () {
             let arr = Object.values(this.result);
             let max = Math.max(...arr);
 
@@ -145,25 +156,24 @@ var vm = new Vue({
         },
 
         //計算每一個type的時候
-        sum: function(type){
-            let total = 0
-            this.questions.forEach(function(val){
-                if(val.type == type){
-                    total += val.selected;
-                }
-            });
-            return total;
-        },
-        SwitchType: function(type){
+        // sum: function (type) {
+        //     // let total = 0;
+        //     // this.questions.forEach(function (val) {
+        //     //     if (val.selected === type.substring(6))
+        //     //         total++;
+        //     // });
+        //     this.result[1] = 10;
+        //     console.log(this.result[1]);
+        // },
+        //跟據測驗結果，把資料庫的內容設定只有最高值的書本跟步驟
+        SwitchType: function (type) {
             var everytypes = ["A", "B", "C"];
-            for(let i=0; i<everytypes.length; i++){
-                if(everytypes[i] === type){
+            for (let i = 0; i < everytypes.length; i++) {
+                if (everytypes[i] === type) {
                     this.books = bookdata[i];
                     this.steps = step[i];
-                    console.log(i);
                 }
             }
-
         },
 
 
@@ -175,11 +185,10 @@ var vm = new Vue({
 
 
         //動態產生ID
-        fromId : function (topic, option){
-            return topic + "_" +　option
+        fromId: function (topic, option) {
+            return topic + "_" + option
         },
     },
 });
 
 Vue.config.devtools = true;
-
