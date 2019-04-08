@@ -1,10 +1,11 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
 body, html {
   padding: 10px;
   margin: 0;
   width: 100%;
   height: 100%;
-  font-family: 'Roboto', sans-serif; }
+  font-family: '微軟正黑體', sans-serif; }
 
 #app {
   font-size: 1em; }
