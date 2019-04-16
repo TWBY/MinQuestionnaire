@@ -4,6 +4,7 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         link(rel="stylesheet", href="style.css")
+
         title Document
     body
         #app
@@ -24,12 +25,34 @@ html(lang="en")
             //- button(@click='next', v-if='this.nsow < this.questions.length - 1') 下一頁
             //- button(@click='settlement', v-if='this.now == this.questions.length - 1') 看結果
             hr
-            button(@click='settlement') 看結果
+            button(v-on:click='settlement') 看結果
             button(@click='reset') 重置
 
-            h3 斷捨離 A = {{ result.resultA }}
-            h3 怦然心動 B = {{ result.resultB }}
-            h3 簡單生活 C = {{ result.resultC }}
+            h3 斷捨離 A = {{ result[0].value }}
+            h3 怦然心動 B = {{ result[1].value }}
+            h3 簡單生活 C = {{ result[2].value }}
+            h3 步驟順序 = {{ steps[0].value }}
+            h3 步驟順序 = {{ steps[1].value }}
+            h3 步驟順序 = {{ steps[2].value }}
+            svg#pic1(viewbox="0 0 100 100")
+                rect.showrect(x=0 y=0 width=100 :height= '10*steps[0].value')
+
+            svg#pic2(viewbox="0 0 100 100")
+                rect.showrect(x=0 y=0 width=100 :height= '10*steps[1].value')
+
+            svg#pic3(viewbox="0 0 100 100")
+                rect.showrect(x=00 y=0 width=100 :height= '10*steps[2].value')
+
+
+            hr
+            .test(v-for='step in steps')
+                .test2(v-for='stepping in step.order')
+                    h4 {{ stepping }}
+                //- ol {{ step.order }}
+                //- h4 {{ step }}
+                //- li(v-for='stepping in step')
+                //-     h4 {{ stepping.order }}
+
 
 
 

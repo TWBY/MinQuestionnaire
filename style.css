@@ -22,3 +22,24 @@ input[type=radio] {
   input[type=radio]:checked + label {
     background-color: #111;
     color: #eee; }
+
+svg {
+  width: 240px;
+  border: solid 2px; }
+
+#pic1 rect, #pic2 rect, #pic3 rect {
+  fill: blue;
+  stroke: yellow; }
+
+#pic1 rect, #pic2 rect, #pic3 rect {
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition-duration: 1.5s;
+  -o-transition-duration: 1.5s;
+  transition-duration: 1.5s; }
+
+#pic1 .showrect, #pic2 .showrect, #pic3 .showrect {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1); }

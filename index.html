@@ -17,11 +17,29 @@
         </template>
       </template>
       <hr/>
-      <button @click="settlement">看結果</button>
+      <button v-on:click="settlement">看結果</button>
       <button @click="reset">重置</button>
-      <h3>斷捨離 A = {{ result.resultA }}</h3>
-      <h3>怦然心動 B = {{ result.resultB }}</h3>
-      <h3>簡單生活 C = {{ result.resultC }}</h3>
+      <h3>斷捨離 A = {{ result[0].value }}</h3>
+      <h3>怦然心動 B = {{ result[1].value }}</h3>
+      <h3>簡單生活 C = {{ result[2].value }}</h3>
+      <h3>步驟順序 = {{ steps[0].value }}</h3>
+      <h3>步驟順序 = {{ steps[1].value }}</h3>
+      <h3>步驟順序 = {{ steps[2].value }}</h3>
+      <svg id="pic1" viewbox="0 0 100 100">
+        <rect class="showrect" x="0" y="0" width="100" :height="10*steps[0].value"></rect>
+      </svg>
+      <svg id="pic2" viewbox="0 0 100 100">
+        <rect class="showrect" x="0" y="0" width="100" :height="10*steps[1].value"></rect>
+      </svg>
+      <svg id="pic3" viewbox="0 0 100 100">
+        <rect class="showrect" x="0" y="0" width="100" :height="10*steps[2].value"></rect>
+      </svg>
+      <hr/>
+      <div class="test" v-for="step in steps">
+        <div class="test2" v-for="stepping in step.order">
+          <h4>{{ stepping }}</h4>
+        </div>
+      </div>
     </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
