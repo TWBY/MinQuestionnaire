@@ -1,19 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500')
 
-@mixin size($w,$h)
-    width: $w
-    height: $h
 
+@import sass/function
+@import sass/base
+@import sass/layout
+@import sass/conponent
+
+*
+    font-family: SimHei
+    border: solid 1px black
+    box-sizing: border-box
+    position: relative
 
 body, html
-    padding: 10px
     margin: 0
     +size(100%,100%)
-    font-family: '微軟正黑體', sans-serif
 
-#app
-    font-size: 1em
-
+//第二頁之後的按鈕
 input[type=radio]
     display: none
     + label
@@ -27,22 +30,22 @@ input[type=radio]
         color: #eee
 
 
-svg
-    width: 240px
-    // height: 100px
-    border: solid 2px
+// svg
+//     width: 240px
+//     // height: 100px
+//     border: solid 2px
 
-#pic1, #pic2, #pic3
-    & rect
-        fill: blue
-        stroke: yellow
+// #pic1, #pic2, #pic3
+//     & rect
+//         fill: blue
+//         stroke: yellow
 
-#pic1, #pic2, #pic3
-    & rect
-        transform: scale(0)
-        transition-duration: 1.5s
-    & .showrect
-        transform: scale(1)
+// #pic1, #pic2, #pic3
+//     & rect
+//         transform: scale(0)
+//         transition-duration: 1.5s
+//     & .showrect
+//         transform: scale(1)
         // transition-duration: 0.8s
     // &:hover
     //     rect

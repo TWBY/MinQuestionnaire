@@ -49,7 +49,8 @@ var vm = new Vue({
             result: everytypes, //A,B,C
             type: '', //測驗結果 A
             steps: step,
-            // books: ''
+            now: 0,
+            pagenow: 0
         }
     },
     created() {
@@ -65,7 +66,6 @@ var vm = new Vue({
     },
     methods: {
         settlement: function () {
-
             var ans = true;
             //檢查每一個選項是不是都有選擇到了，並且設定回原本
             this.questions.forEach(function (val) {
@@ -106,7 +106,7 @@ var vm = new Vue({
             this.steps.sort(function (a, b) {
                 return b.value - a.value;
             })
-
+            this.pagenow++;
         },
         //找到最大值
         // mostbig: function () {
@@ -137,7 +137,20 @@ var vm = new Vue({
                 }
             }
         },
-
+        start: function () {
+            this.pagenow++;
+        },
+        last: function () {
+            this.now = this.now - 3;
+        },
+        next: function () {
+            if (this.questions[this.now].selected !== null) {
+                this.now = this.now + 3;
+            } else {
+                alert('你尚未作答唷')
+            }
+            console.log(this.now);
+        },
 
         reset: function () {
             this.questions.forEach(function (val) {
@@ -150,9 +163,15 @@ var vm = new Vue({
         fromId: function (topic, option) {
             return topic + "_" + option
         },
+        showitem: function (index) {
+            if (index >= this.now && index < (this.now + 3)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     },
 });
-
 
 
 Vue.config.devtools = true;
