@@ -115,7 +115,7 @@
 
 .container .number, .container .symbol {
   font-size: 230px;
-  font-family: SourceSerifVariable;
+  font-family: Times New Roman;
   -webkit-text-stroke: 1.1px #333;
   color: #fefbd2;
   letter-spacing: 12px; }
