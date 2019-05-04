@@ -18,23 +18,27 @@ html(lang="en")
                             img.logo(src="logo.png", alt="")
                         .title 「你適合哪一種減物法則」
                         .subtitle 測驗告訴你 你適合三大法則哪一項
-                    .middle
-                        .number 15
-                        .symbol +
-                        .number 5
-                        .symbol =
-                        .depiction 
-                            | 這是心理測驗，
-                            br 
-                            | 不是學術量化報告，
-                            br
-                            | 僅供參考與娛樂性質，
-                            br
-                            | 希望你會喜歡。
                     .bottom
-                        .unit.subject 道單選題
-                        .unit.minute 分鐘以內
-                        .button(@click='start') START
+                        .operation
+                            .subject
+                                .number 15
+                                .unit 道單選題
+                            .symbol +
+                            .minute
+                                .number 5
+                                .unit 分鐘以內
+                            .symbol =
+                        .state
+                            .depiction 
+                                | 這是心理測驗，
+                                br 
+                                | 不是學術量化報告，
+                                br
+                                | 僅供參考與娛樂性質，
+                                br
+                                | 希望你會喜歡
+                            .button(@click='start') START
+                        
             template#question(v-if='pagenow == 1')
                 template(v-for='(item, index) in questions')
                     template(v-if='showitem(index)')

@@ -5,7 +5,7 @@
 .container 
     display: flex
     flex-direction: column
-    +size(50%, auto)
+    +size(55%, auto)
     margin: 0 auto
     margin-top: 80px
     border-radius: 5px
@@ -15,26 +15,27 @@
             margin-top: 15px
         & .logocontain
             +flexdisplay(flex, center, center)
-    & .middle
-        display: flex
-        margin-top: -40px
-        & .depiction 
-            +flexdisplay(flex, center, center)
-            text-align: left
-            margin-left: 4%
     & .bottom
         display: flex
-        margin-top: -30px
+        // margin-top: -40px
         & .unit, & .button
             +size(200px, auto)
             padding-top: 5px
-            padding-bottom: 5px 
-        & .subject
-            margin-left: 5%
-        & .minute
-            margin-left: 15%
-        & .button
-            margin-left: 16%
+            padding-bottom: 5px
+        & .operation
+            display: flex
+            & .unit
+                margin: 0 auto
+        & .state
+            border: solid 1px #f24
+            +size(100%, auto)
+            & .button
+                margin: 0 auto
+            & .depiction 
+                +flexdisplay(flex, flex-start, center)
+                text-align: left
+                // margin-left: 4%
+                +size(100%, 268px)
 
 
 
@@ -42,9 +43,11 @@
     .container 
         +size(60%, auto)
 
+
 @media screen and (max-width: 1366px)
     .container 
         +size(70%, auto)
+
 
 @media screen and (max-width: 1024px)
     .container 

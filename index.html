@@ -17,18 +17,24 @@
             <div class="title">「你適合哪一種減物法則」</div>
             <div class="subtitle">測驗告訴你 你適合三大法則哪一項</div>
           </div>
-          <div class="middle">
-            <div class="number">15</div>
-            <div class="symbol">+</div>
-            <div class="number">5</div>
-            <div class="symbol">=</div>
-            <div class="depiction">
-               這是心理測驗，<br/>不是學術量化報告，<br/>僅供參考與娛樂性質，<br/>希望你會喜歡。</div>
-          </div>
           <div class="bottom">
-            <div class="unit subject">道單選題</div>
-            <div class="unit minute">分鐘以內</div>
-            <div class="button" @click="start">START</div>
+            <div class="operation">
+              <div class="subject">
+                <div class="number">15</div>
+                <div class="unit">道單選題</div>
+              </div>
+              <div class="symbol">+</div>
+              <div class="minute">
+                <div class="number">5</div>
+                <div class="unit">分鐘以內</div>
+              </div>
+              <div class="symbol">=</div>
+            </div>
+            <div class="state">
+              <div class="depiction">
+                 這是心理測驗，<br/>不是學術量化報告，<br/>僅供參考與娛樂性質，<br/>希望你會喜歡</div>
+              <div class="button" @click="start">START</div>
+            </div>
           </div>
         </div>
       </template>
