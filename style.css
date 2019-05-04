@@ -1,5 +1,4 @@
-@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
+@import url("https://fonts.googleapis.com/css?family=Merriweather");
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -146,7 +145,7 @@
   max-width: 70px; }
 
 * {
-  font-family: 微軟正黑體;
+  font-family: 'Merriweather', serif;
   border: solid 1px black;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
