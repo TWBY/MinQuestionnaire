@@ -27,18 +27,47 @@
             & .unit
                 margin: 0 auto
         & .state
-            border: solid 1px #f24
+            margin-left: 4%
             +size(100%, auto)
             & .button
-                margin: 0 auto
+                // margin: 0 auto
             & .depiction 
                 +flexdisplay(flex, flex-start, center)
                 text-align: left
                 // margin-left: 4%
-                +size(100%, 268px)
+                +size(100%, 270px)
 
 
+//題目頁面
+.sidebar 
+    position: absolute
+#question
+    display: relative
+    left: 30%
+    margin-top: 10px
+    & .title 
+        margin-bottom: 20px
+    & .option
+        margin-bottom: -10px
 
+//結果頁面
+#results
+    +flexdisplay()
+    margin-top: 40px
+.resultcontainer 
+    +size(50%, 600px)
+    +flexdisplay()
+    +border()
+
+.BreakOff, .Heartbeat, .simpleLife
+    cursor: pointer
+    +size(100% / 3 , 100%)
+    flex: 2 0 10px
+    transition-duration: 1s
+    &:hover
+        flex: 12
+
+//media require
 @media screen and (max-width: 1500px)
     .container 
         +size(60%, auto)

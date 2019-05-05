@@ -11,23 +11,54 @@
         -webkit-text-stroke: 1.1px #333
         color: #fefbd2
         letter-spacing: 12px
-    & .unit, .depiction
-        font-size: 20px
     & .unit
+        font-size: 20px
         border-radius: 100px
         background-color: #efefef
         color: #231815
     & .depiction
         letter-spacing: 1.4px
         line-height: 30px
+        font-size: 20px
     & .button
         border-radius: 100px
         background-color: #fefbd2
         border: solid 2px #534741
         color: #231815
         cursor: pointer
-        font-size: 18px
-    
+        font-size: 20px
 .logo
     max-width: 70px
+
+
+//題目
+.sidebar   
+    +border()
+    +size(100px, 600px)
+#question
+    +border()
+    +size(600px, auto)
+.title
+    font-size: 26px
+input[type=radio]
+    display: none
+    // border:　solid 3px purple
+    + label
+        display: block
+        +size(auto, auto)
+        border:　solid 3px purple
+        font-size: 22px 
+        &:hover
+            // background-color: #aaa
+            cursor: pointer
+    &:checked + label
+        display: block
+        +size(auto, auto)
+        background-color: #fefbd2
+        border-radius: 50px
+        color: #505256
+
+//結果頁面
+.resultcontainer
+    border-radius: 30px
 

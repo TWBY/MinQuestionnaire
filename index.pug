@@ -39,34 +39,36 @@ html(lang="en")
                                 | 希望你會喜歡
                             .button(@click='start') START
                         
-            template#question(v-if='pagenow == 1')
+            template(v-if='pagenow == 1')
+                .sidebar test
                 template(v-for='(item, index) in questions')
                     template(v-if='showitem(index)')
-                        h4 {{ index + 1 }}.{{ item.quest }}
-                        template.number(v-for='(val, v) in item.options')
-                            input(:id="fromId(index,v)" type='radio', v-bind:value='val.type', v-model='item.selected')
-                            label(:for="fromId(index,v)") {{ v+1. }} . {{ val.q }}
-                            br
+                        #question        
+                            .title {{ index + 1 }}.{{ item.quest }}
+                            template.number(v-for='(val, v) in item.options')
+                                input(:id="fromId(index,v)" type='radio', v-bind:value='val.type', v-model='item.selected')
+                                label.option(:for="fromId(index,v)") &emsp;&emsp; {{ v+1. }} . {{ val.q }}
+                                br
                 button(@click='last', v-if='this.now > 0') 上一頁
                 button(@click='next', v-if='this.now < this.questions.length - 1') 下一頁
                 button(@click='settlement', v-if='this.now == this.questions.length - 3') 看結果
             template#result(v-if='pagenow == 2')
-                h3 斷捨離 A = {{ result[0].value }}
-                h3 怦然心動 B = {{ result[1].value }}
-                h3 簡單生活 C = {{ result[2].value }}
+                #results
+                    .resultcontainer 
+                        .BreakOff 斷捨離 
+                        .Heartbeat 我決定這樣簡單生活 
+                        .simpleLife 怦然心動的人生整理魔法
 
-                svg#pic1(viewbox="0 0 100 100")
-                    rect.showrect(x=0 y=0 width=100 :height= '10*steps[0].value')
-                svg#pic2(viewbox="0 0 100 100")
-                    rect.showrect(x=0 y=0 width=100 :height= '10*steps[1].value')
-                svg#pic3(viewbox="0 0 100 100")
-                    rect.showrect(x=00 y=0 width=100 :height= '10*steps[2].value')
-                //- img(src="Path_ready.svg", alt="")
+                //- h3 斷捨離 A = {{ result[0].value }}
+                //- h3 怦然心動 B = {{ result[1].value }}
+                //- h3 簡單生活 C = {{ result[2].value }}
 
-                //- hr
-                //- .test(v-for='step in steps')
-                //-     .test2(v-for='stepping in step.order')
-                //-         h4 {{ stepping }}
+                //- svg#pic1(viewbox="0 0 100 100")
+                //-     rect.showrect(x=0 y=0 width=100 :height= '10*steps[0].value')
+                //- svg#pic2(viewbox="0 0 100 100")
+                //-     rect.showrect(x=0 y=0 width=100 :height= '10*steps[1].value')
+                //- svg#pic3(viewbox="0 0 100 100")
+                //-     rect.showrect(x=00 y=0 width=100 :height= '10*steps[2].value')
 
 
     script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")

@@ -38,14 +38,17 @@
           </div>
         </div>
       </template>
-      <template id="question" v-if="pagenow == 1">
+      <template v-if="pagenow == 1">
+        <div class="sidebar">test</div>
         <template v-for="(item, index) in questions">
           <template v-if="showitem(index)">
-            <h4>{{ index + 1 }}.{{ item.quest }}</h4>
-            <template class="number" v-for="(val, v) in item.options">
-              <input :id="fromId(index,v)" type="radio" v-bind:value="val.type" v-model="item.selected"/>
-              <label :for="fromId(index,v)">{{ v+1. }} . {{ val.q }}</label><br/>
-            </template>
+            <div id="question">       
+              <div class="title">{{ index + 1 }}.{{ item.quest }}</div>
+              <template class="number" v-for="(val, v) in item.options">
+                <input :id="fromId(index,v)" type="radio" v-bind:value="val.type" v-model="item.selected"/>
+                <label class="option" :for="fromId(index,v)">&emsp;&emsp; {{ v+1. }} . {{ val.q }}</label><br/>
+              </template>
+            </div>
           </template>
         </template>
         <button @click="last" v-if="this.now &gt; 0">上一頁</button>
@@ -53,18 +56,13 @@
         <button @click="settlement" v-if="this.now == this.questions.length - 3">看結果</button>
       </template>
       <template id="result" v-if="pagenow == 2">
-        <h3>斷捨離 A = {{ result[0].value }}</h3>
-        <h3>怦然心動 B = {{ result[1].value }}</h3>
-        <h3>簡單生活 C = {{ result[2].value }}</h3>
-        <svg id="pic1" viewbox="0 0 100 100">
-          <rect class="showrect" x="0" y="0" width="100" :height="10*steps[0].value"></rect>
-        </svg>
-        <svg id="pic2" viewbox="0 0 100 100">
-          <rect class="showrect" x="0" y="0" width="100" :height="10*steps[1].value"></rect>
-        </svg>
-        <svg id="pic3" viewbox="0 0 100 100">
-          <rect class="showrect" x="0" y="0" width="100" :height="10*steps[2].value"></rect>
-        </svg>
+        <div id="results">
+          <div class="resultcontainer"> 
+            <div class="BreakOff">斷捨離 </div>
+            <div class="Heartbeat">我決定這樣簡單生活 </div>
+            <div class="simpleLife">怦然心動的人生整理魔法</div>
+          </div>
+        </div>
       </template>
     </div>
   </body>

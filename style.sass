@@ -1,8 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Merriweather')
 
-
-
 @import sass/function
 @import sass/base
 @import sass/layout
@@ -17,19 +15,6 @@
 body, html
     margin: 0
     +size(100%,100%)
-
-//第二頁之後的按鈕
-input[type=radio]
-    display: none
-    + label
-        +size(40px,40px)
-        font-size: 1.5em
-        &:hover
-            background-color: #aaa
-            cursor: pointer
-    &:checked + label
-        background-color: #111
-        color: #eee
 
 
 // svg
