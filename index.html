@@ -10,7 +10,7 @@
   <body>
     <div class="header"><a class="title home" href="index.html">Home</a><a class="title method" href="docs/html/method.html">Method</a><a class="title information" href="docs/html/information.html">Information</a></div>
     <div id="app">
-      <template id="intro" v-if="pagenow == 0">
+      <template id="intro" v-if="pageNow == 0">
         <div class="container"> 
           <div class="top">
             <div class="logocontain"><img class="logo" src="logo.png" alt=""/></div>
@@ -38,10 +38,10 @@
           </div>
         </div>
       </template>
-      <template v-if="pagenow == 1">
+      <template v-if="pageNow == 1">
         <div class="sidebar">test</div>
         <template v-for="(item, index) in questions">
-          <template v-if="showitem(index)">
+          <template v-if="showItem(index)">
             <div id="question">       
               <div class="title">{{ index + 1 }}.{{ item.quest }}</div>
               <template class="number" v-for="(val, v) in item.options">
@@ -55,38 +55,16 @@
         <button @click="next" v-if="this.now &lt; this.questions.length - 1">下一頁</button>
         <button @click="settlement" v-if="this.now == this.questions.length - 3">看結果</button>
       </template>
-      <template id="result" v-if="pagenow == 2">
+      <template id="result" v-if="pageNow == 2">
         <div id="results">
-          <div class="resultcontainer"> 
-            <div class="BreakOff"> 
-              <div class="title">{{ resultinfos[0].title }} </div><img class="openpeople" src="logo.png" alt=""/><img class="people" src="logo.png" alt=""/>
-              <div class="stars">
-                <div class="star" v-for="item in showstarone()"> <img src="logo.png" alt=""/></div>
-              </div>
-              <div class="depiction">
-                <div class="state">{{ resultinfos[1].state }}</div>
-                <div class="step"> </div>
-              </div>
+          <div class="resultContainer" :id="resultId(index)" v-for="(result, index) in resultinfos">
+            <div class="title">{{ result.title }} </div><img class="openPeople" src="logo.png" alt=""/><img class="people" src="logo.png" alt=""/>
+            <div class="stars">
+              <div class="star" v-for="item in showStar(index)"> <img src="logo.png" alt=""/></div>
             </div>
-            <div class="Heartbeat"> 
-              <div class="title">{{ resultinfos[1].title }}</div><img class="openpeople" src="logo.png" alt=""/><img class="people" src="logo.png" alt=""/>
-              <div class="stars">
-                <div class="star" v-for="item in showstartwo()"> <img src="logo.png" alt=""/></div>
-              </div>
-              <div class="depiction">
-                <div class="state">{{ resultinfos[1].state }}</div>
-                <div class="step"> </div>
-              </div>
-            </div>
-            <div class="simpleLife"> 
-              <div class="title">{{ resultinfos[2].title }} </div><img class="openpeople" src="logo.png" alt=""/><img class="people" src="logo.png" alt=""/>
-              <div class="stars">
-                <div class="star" v-for="item in showstarthree()"> <img src="logo.png" alt=""/></div>
-              </div>
-              <div class="depiction">
-                <div class="state">{{ resultinfos[1].state }}</div>
-                <div class="step"> </div>
-              </div>
+            <div class="depiction">
+              <div class="state" v-html="result.state"></div>
+              <div class="step"> this is step</div>
             </div>
           </div>
         </div>

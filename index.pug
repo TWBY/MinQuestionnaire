@@ -11,7 +11,7 @@ html(lang="en")
             a.title.method(href="docs/html/method.html") Method
             a.title.information(href="docs/html/information.html") Information
         #app
-            template#intro(v-if='pagenow == 0')
+            template#intro(v-if='pageNow == 0')
                 .container 
                     .top
                         .logocontain
@@ -39,10 +39,10 @@ html(lang="en")
                                 | 希望你會喜歡
                             .button(@click='start') START
                         
-            template(v-if='pagenow == 1')
+            template(v-if='pageNow == 1')
                 .sidebar test
                 template(v-for='(item, index) in questions')
-                    template(v-if='showitem(index)')
+                    template(v-if='showItem(index)')
                         #question        
                             .title {{ index + 1 }}.{{ item.quest }}
                             template.number(v-for='(val, v) in item.options')
@@ -52,43 +52,20 @@ html(lang="en")
                 button(@click='last', v-if='this.now > 0') 上一頁
                 button(@click='next', v-if='this.now < this.questions.length - 1') 下一頁
                 button(@click='settlement', v-if='this.now == this.questions.length - 3') 看結果
-            template#result(v-if='pagenow == 2')
-                #results
-                    .resultcontainer 
-                        .BreakOff 
-                            .title {{ resultinfos[0].title }} 
-                            img.openpeople(src="logo.png", alt="")
-                            img.people(src="logo.png", alt="")
-                            .stars
-                                .star(v-for='item in showstarone()') 
-                                    img(src="logo.png", alt="")
-                            .depiction
-                                .state {{ resultinfos[1].state }}
-                                .step 
-                        .Heartbeat 
-                            .title {{ resultinfos[1].title }}
-                            img.openpeople(src="logo.png", alt="")  
-                            img.people(src="logo.png", alt="")
-                            .stars
-                                .star(v-for='item in showstartwo()') 
-                                    img(src="logo.png", alt="")
-                            .depiction
-                                .state {{ resultinfos[1].state }}
-                                .step 
-                        .simpleLife 
-                            .title {{ resultinfos[2].title }} 
-                            img.openpeople(src="logo.png", alt="")
-                            img.people(src="logo.png", alt="")
-                            .stars
-                                .star(v-for='item in showstarthree()') 
-                                    img(src="logo.png", alt="")
-                            .depiction
-                                .state {{ resultinfos[1].state }}
-                                .step 
 
-                //- h3 斷捨離 A = {{ result[0].value }}
-                //- h3 怦然心動 B = {{ result[1].value }}
-                //- h3 簡單生活 C = {{ result[2].value }}
+            template#result(v-if='pageNow == 2')
+                #results
+                    .resultContainer(:id="resultId(index)" v-for='(result, index) in resultinfos')
+                        .title {{ result.title }} 
+                        img.openPeople(src="logo.png", alt="")
+                        img.people(src="logo.png", alt="")
+                        .stars
+                            .star(v-for='item in showStar(index)') 
+                                img(src="logo.png", alt="")
+                        .depiction
+                            .state(v-html='result.state')
+                            .step  this is step
+                            
 
                 //- svg#pic1(viewbox="0 0 100 100")
                 //-     rect.showrect(x=0 y=0 width=100 :height= '10*steps[0].value')

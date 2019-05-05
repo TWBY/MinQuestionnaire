@@ -55,16 +55,15 @@
 //結果頁面
 #results
     +flexdisplay()
+    margin: 0 auto
     margin-top: 100px
-.resultcontainer 
     +size(60%, 600px)
-    +flexdisplay()
-    // +border()
-    &:hover .openpeople
-        // +size(0px, 0px)
+    +border()
+    &:hover .openPeople
         opacity: 0
 
-.BreakOff, .Heartbeat, .simpleLife
+#result0, #result1, #result2, 
+    +border(solid, 1px, purple)
     padding: 10px
     cursor: pointer
     +size(100% / 3 , 100%)
@@ -77,29 +76,63 @@
         position: absolute
         +size(40px, 100% - 5%)
         padding-top: 20px
-    & .people, & .openpeople
+
+    //人物顯示
+    & .people, & .openPeople
         position: absolute
         right: 0px
         bottom: 0px
-        opacity: 0
         +size(250px, auto)
-    & .openpeople
+    & .people
+        opacity: 0    
+    & .openPeople
         opacity: 1
         transition-delay: 0.4s
-    & .state
-        position: absolute
-        +size(500px, auto)
-        +border()
-        top: 200px
-        opacity: 0
-        transition-duration: 0.8s
-    &:hover .state
-        top: 100px
-        opacity: 1
     &:hover .people
         transition-duration: 0.8s
         transition-delay: 0.3s
         opacity: 1
+    &:hover .openPeople
+        opacity: 1
+
+    //簡介
+    & .depiction
+        position: absolute
+        +size(750px, auto)
+        top: 220px
+        left: 80px
+        +border()
+        opacity: 0
+        transition-duration: 0.8s
+        & .state
+            // position: absolute
+            // +size(750px, auto)
+            // +border()
+            // top: 200px
+            // left: 60px
+            opacity: 1
+            transition-duration: 0.8s
+    &:hover .depiction
+        top: 150px
+        opacity: 1
+
+
+    //星星
+    & .stars
+        position: absolute
+        left: 14%
+        display: flex
+        flex-wrap: wrap
+        +size(80%, auto)
+        +border()
+        & .star
+            +size(15%, auto)
+            +border(dotted, 0.5px, black)
+            margin-left: 5%
+            & img
+                +size(100%, auto)
+
+
 
 
 
