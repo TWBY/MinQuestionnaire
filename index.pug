@@ -55,9 +55,36 @@ html(lang="en")
             template#result(v-if='pagenow == 2')
                 #results
                     .resultcontainer 
-                        .BreakOff 斷捨離 
-                        .Heartbeat 我決定這樣簡單生活 
-                        .simpleLife 怦然心動的人生整理魔法
+                        .BreakOff 
+                            .title {{ resultinfos[0].title }} 
+                            img.openpeople(src="logo.png", alt="")
+                            img.people(src="logo.png", alt="")
+                            .stars
+                                .star(v-for='item in showstarone()') 
+                                    img(src="logo.png", alt="")
+                            .depiction
+                                .state {{ resultinfos[1].state }}
+                                .step 
+                        .Heartbeat 
+                            .title {{ resultinfos[1].title }}
+                            img.openpeople(src="logo.png", alt="")  
+                            img.people(src="logo.png", alt="")
+                            .stars
+                                .star(v-for='item in showstartwo()') 
+                                    img(src="logo.png", alt="")
+                            .depiction
+                                .state {{ resultinfos[1].state }}
+                                .step 
+                        .simpleLife 
+                            .title {{ resultinfos[2].title }} 
+                            img.openpeople(src="logo.png", alt="")
+                            img.people(src="logo.png", alt="")
+                            .stars
+                                .star(v-for='item in showstarthree()') 
+                                    img(src="logo.png", alt="")
+                            .depiction
+                                .state {{ resultinfos[1].state }}
+                                .step 
 
                 //- h3 斷捨離 A = {{ result[0].value }}
                 //- h3 怦然心動 B = {{ result[1].value }}

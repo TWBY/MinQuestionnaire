@@ -36,6 +36,52 @@ let step = [{
     }
 ]
 
+let resultinfo = [{
+        title: '斷捨離',
+        img: '',
+        star: '',
+        state: '作為減物生活最初代表著作之一，\
+                適合給不知從何下手或仰賴豐富資訊的你，\
+                在本測驗推薦的三本書中，我們認為是最具邏輯性與客觀性的。\
+                斷捨離一書中，所闡述的減物法則，簡單而言也就是「斷」「捨」「離」三個步驟，\
+                必須維持其順序性。「斷」與「捨」是行為上的要求，斷絕不必要的物品獲取，\
+                以及捨去已堆積不會用的物品，從中得到「脫離」物欲執著的狀態，\
+                屬精神層次的提升，也是作者不斷提到思維要從「看得到的世界」到「看不到的世界」改變的意思。\
+                即「斷」與「離」是這個減物法則的方法，而「離」是希望達到的狀態。'
+
+    },
+    {
+        title: '我決定這樣簡單生活',
+        img: '',
+        star: '',
+        state: '2012年在日本大為暢銷的生活風格書籍，\
+                在測驗中推薦的另一本書「我決定簡單的生活」\
+                作者也在自己的著作內反覆提到，更強調了它出版後對極簡主義的奠基有著巨大的影響。\
+                「怦然心動的整理魔法」推薦給很了解自己、想更珍惜物品的你，\
+                對比其他兩本推薦書，減物的規則更加彈性，「能讓你怦然心動的物品通通可以留下！」\
+                這樣可愛的概念，目的是在塑造真正理想的環境，\
+                不把減少物品當成目標，而是透過減少不喜愛的物品，讓自己的生活更有愛。\
+                作者更發下「只要實踐怦然心動法則，房間就再也不會變亂！」的保證，\
+                這樣的整理魔法，請你務必試試看！'
+    },
+    {
+        title: '怦然心動的人生整理魔法',
+        img: '',
+        star: '',
+        state: '「極簡主義者」的誕生代表作。\
+                作者佐佐木典士是亞洲區域第一個出版分享「極簡主義」生活實際方法的人，\
+                更是因為極簡主義而改變人生的證明者。\
+                這本書適合意志堅定、乾脆俐落的你，\
+                內容條列式說明了極簡主義的起源以及存在的意義，\
+                作者懇切地分享了自己從垃圾屋到空無一物房間的過程（附有一系列轉變的紀錄圖），\
+                這個減物法則也是本測驗三本書中，有著最大反轉魅力的一個。\
+                「極簡主義」比起「斷捨離」或是「怦然心動法則」，\
+                不太像是一個行動上的步驟建議，更多的是一個生活原則的建立，\
+                它沒有一定的答案或方法，相信每個人都有自己前進的方法，\
+                只是想讓你知道小而美的生活模式，知道你可以代表自己，而不用用擁有什麼展示自己。'
+    }
+]
+
 
 function getKeyByValue(object, value) {
     return Object.keys(object).find(key => object[key] === value);
@@ -50,7 +96,9 @@ var vm = new Vue({
             type: '', //測驗結果 A
             steps: step,
             now: 0,
-            pagenow: 0
+            pagenow: 0,
+            resultinfos: resultinfo,
+            // emptyarray: ''
         }
     },
     created() {
@@ -95,7 +143,7 @@ var vm = new Vue({
                 alert('你尚未完成所有問題');
             }
 
-            // this.mostbig();
+
 
             // this.SwitchType(this.type.substring(6));
 
@@ -107,6 +155,9 @@ var vm = new Vue({
                 return b.value - a.value;
             })
             this.pagenow++;
+            this.showstarone();
+            this.showstartwo();
+            this.showstarthree();
         },
         //找到最大值
         // mostbig: function () {
@@ -158,6 +209,18 @@ var vm = new Vue({
             });
         },
 
+        showstarone: function () {
+            let value = this.result[0].value;
+            return value;
+        },
+        showstartwo: function () {
+            let value = this.result[1].value;
+            return value;
+        },
+        showstarthree: function () {
+            let value = this.result[2].value;
+            return value;
+        },
 
         //動態產生ID
         fromId: function (topic, option) {
@@ -172,6 +235,8 @@ var vm = new Vue({
         }
     },
 });
+
+console.log(vm.showstar());
 
 
 Vue.config.devtools = true;

@@ -58,9 +58,36 @@
       <template id="result" v-if="pagenow == 2">
         <div id="results">
           <div class="resultcontainer"> 
-            <div class="BreakOff">斷捨離 </div>
-            <div class="Heartbeat">我決定這樣簡單生活 </div>
-            <div class="simpleLife">怦然心動的人生整理魔法</div>
+            <div class="BreakOff"> 
+              <div class="title">{{ resultinfos[0].title }} </div><img class="openpeople" src="logo.png" alt=""/><img class="people" src="logo.png" alt=""/>
+              <div class="stars">
+                <div class="star" v-for="item in showstarone()"> <img src="logo.png" alt=""/></div>
+              </div>
+              <div class="depiction">
+                <div class="state">{{ resultinfos[1].state }}</div>
+                <div class="step"> </div>
+              </div>
+            </div>
+            <div class="Heartbeat"> 
+              <div class="title">{{ resultinfos[1].title }}</div><img class="openpeople" src="logo.png" alt=""/><img class="people" src="logo.png" alt=""/>
+              <div class="stars">
+                <div class="star" v-for="item in showstartwo()"> <img src="logo.png" alt=""/></div>
+              </div>
+              <div class="depiction">
+                <div class="state">{{ resultinfos[1].state }}</div>
+                <div class="step"> </div>
+              </div>
+            </div>
+            <div class="simpleLife"> 
+              <div class="title">{{ resultinfos[2].title }} </div><img class="openpeople" src="logo.png" alt=""/><img class="people" src="logo.png" alt=""/>
+              <div class="stars">
+                <div class="star" v-for="item in showstarthree()"> <img src="logo.png" alt=""/></div>
+              </div>
+              <div class="depiction">
+                <div class="state">{{ resultinfos[1].state }}</div>
+                <div class="step"> </div>
+              </div>
+            </div>
           </div>
         </div>
       </template>

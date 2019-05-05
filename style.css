@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Merriweather");
 .header {
   display: -webkit-box;
@@ -113,10 +114,10 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-top: 40px; }
+  margin-top: 100px; }
 
 .resultcontainer {
-  width: 50%;
+  width: 60%;
   height: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -126,25 +127,68 @@
   justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #f24; }
+  align-items: center; }
+  .resultcontainer:hover .openpeople {
+    opacity: 0; }
 
 .BreakOff, .Heartbeat, .simpleLife {
+  padding: 10px;
   cursor: pointer;
   width: 33.33333%;
   height: 100%;
-  -webkit-box-flex: 2;
-  -ms-flex: 2 0 10px;
-  flex: 2 0 10px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
   -webkit-transition-duration: 1s;
   -o-transition-duration: 1s;
   transition-duration: 1s; }
   .BreakOff:hover, .Heartbeat:hover, .simpleLife:hover {
-    -webkit-box-flex: 12;
-    -ms-flex: 12;
-    flex: 12; }
+    -webkit-transition-duration: 1.2s;
+    -o-transition-duration: 1.2s;
+    transition-duration: 1.2s;
+    -webkit-box-flex: 15;
+    -ms-flex: 15;
+    flex: 15; }
+  .BreakOff .title, .Heartbeat .title, .simpleLife .title {
+    position: absolute;
+    width: 40px;
+    height: 95%;
+    padding-top: 20px; }
+  .BreakOff .people, .BreakOff .openpeople, .Heartbeat .people, .Heartbeat .openpeople, .simpleLife .people, .simpleLife .openpeople {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    opacity: 0;
+    width: 250px;
+    height: auto; }
+  .BreakOff .openpeople, .Heartbeat .openpeople, .simpleLife .openpeople {
+    opacity: 1;
+    -webkit-transition-delay: 0.4s;
+    -o-transition-delay: 0.4s;
+    transition-delay: 0.4s; }
+  .BreakOff .state, .Heartbeat .state, .simpleLife .state {
+    position: absolute;
+    width: 500px;
+    height: auto;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #f24;
+    top: 200px;
+    opacity: 0;
+    -webkit-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s; }
+  .BreakOff:hover .state, .Heartbeat:hover .state, .simpleLife:hover .state {
+    top: 100px;
+    opacity: 1; }
+  .BreakOff:hover .people, .Heartbeat:hover .people, .simpleLife:hover .people {
+    -webkit-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transition-delay: 0.3s;
+    -o-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+    opacity: 1; }
 
 @media screen and (max-width: 1500px) {
   .container {
@@ -197,16 +241,10 @@
   max-width: 70px; }
 
 .sidebar {
-  border-style: solid;
-  border-width: 2px;
-  border-color: #f24;
   width: 100px;
   height: 600px; }
 
 #question {
-  border-style: solid;
-  border-width: 2px;
-  border-color: #f24;
   width: 600px;
   height: auto; }
 
@@ -231,11 +269,24 @@ input[type=radio] {
     color: #505256; }
 
 .resultcontainer {
-  border-radius: 30px; }
+  border-radius: 30px;
+  border-style: solid;
+  border-width: 3.5px;
+  border-color: #ccc; }
+
+.BreakOff .title, .Heartbeat .title, .simpleLife .title {
+  color: #000000;
+  background-color: #efefef;
+  border-radius: 20px;
+  text-align: center; }
+
+.Heartbeat {
+  border-style: dotted;
+  border-width: 1px;
+  border-color: #aaa; }
 
 * {
-  font-family: 'Merriweather', serif;
-  border: solid 1px black;
+  font-family: 'Merriweather', 微軟正黑體;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   position: relative; }

@@ -33,23 +33,22 @@
 
 //題目
 .sidebar   
-    +border()
+    // +border()
     +size(100px, 600px)
 #question
-    +border()
+    // +border()
     +size(600px, auto)
 .title
     font-size: 26px
 input[type=radio]
     display: none
-    // border:　solid 3px purple
     + label
         display: block
         +size(auto, auto)
         border:　solid 3px purple
         font-size: 22px 
         &:hover
-            // background-color: #aaa
+
             cursor: pointer
     &:checked + label
         display: block
@@ -61,4 +60,13 @@ input[type=radio]
 //結果頁面
 .resultcontainer
     border-radius: 30px
+    +border(solid, 3.5px ,#ccc)
+.BreakOff, .Heartbeat, .simpleLife
+    & .title
+        color: #000000
+        background-color: #efefef //正版
+        border-radius: 20px
+        text-align: center
+.Heartbeat
+    +border(dotted, 1px ,#aaa)
 
