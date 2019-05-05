@@ -145,15 +145,15 @@
     {
         "quest": "只能選擇一種社交平台使用，你會選:",
         "options": [{
-                "q": "facebook",
+                "q": "Facebook",
                 "type": "A"
             },
             {
-                "q": "instergram",
+                "q": "Instergram",
                 "type": "C"
             },
             {
-                "q": "youtube",
+                "q": "Youtube",
                 "type": "B"
             }
         ],
@@ -189,7 +189,7 @@
                 "type": "C"
             },
             {
-                "q": "和諧、平衡、適度、清爽、陪合度高、謙虛、知性、耐心、善體人意",
+                "q": "和諧、平衡、適度、清爽、配合度高、謙虛、知性、耐心、善體人意",
                 "type": "A"
             }
         ],

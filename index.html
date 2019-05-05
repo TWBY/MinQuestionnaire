@@ -32,13 +32,13 @@
             </div>
             <div class="state">
               <div class="depiction">
-                 這是心理測驗，<br/>不是學術量化報告，<br/>僅供參考與娛樂性質，<br/>希望你會喜歡</div>
+                 這是心理測驗，<br/>不是學術量化報告，<br/>僅供參考與娛樂性質，<br/>希望你會喜歡。</div>
               <div class="button" @click="start">START</div>
             </div>
           </div>
         </div>
       </template>
-      <template v-if="pageNow == 1">
+      <template class="questions" v-if="pageNow == 1">
         <div class="sidebar">test</div>
         <template v-for="(item, index) in questions">
           <template v-if="showItem(index)">
@@ -46,7 +46,7 @@
               <div class="title">{{ index + 1 }}.{{ item.quest }}</div>
               <template class="number" v-for="(val, v) in item.options">
                 <input :id="fromId(index,v)" type="radio" v-bind:value="val.type" v-model="item.selected"/>
-                <label class="option" :for="fromId(index,v)">&emsp;&emsp; {{ v+1. }} . {{ val.q }}</label><br/>
+                <label class="option" :for="fromId(index,v)">&emsp;&emsp; ◎ . {{ val.q }}</label><br/>
               </template>
             </div>
           </template>

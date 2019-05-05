@@ -93,13 +93,24 @@
         width: 100%;
         height: 270px; }
 
+.questions {
+  width: 100%;
+  height: 100%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #f24; }
+
 .sidebar {
-  position: absolute; }
+  position: absolute;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #f24; }
 
 #question {
-  display: relative;
-  left: 30%;
-  margin-top: 10px; }
+  border-style: solid;
+  border-width: 2px;
+  border-color: #f24;
+  left: 30%; }
   #question .title {
     margin-bottom: 20px; }
   #question .option {
@@ -136,16 +147,19 @@
   -webkit-box-flex: 1;
   -ms-flex: 1 1;
   flex: 1 1;
-  -webkit-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  transition-duration: 1s; }
+  -webkit-transition-duration: 1.5s;
+  -o-transition-duration: 1.5s;
+  transition-duration: 1.5s; }
   #result0:hover, #result1:hover, #result2:hover {
-    -webkit-transition-duration: 1.2s;
-    -o-transition-duration: 1.2s;
-    transition-duration: 1.2s;
     -webkit-box-flex: 15;
     -ms-flex: 15;
-    flex: 15; }
+    flex: 15;
+    -webkit-transition-duration: 2.5s;
+    -o-transition-duration: 2.5s;
+    transition-duration: 2.5s;
+    -webkit-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease; }
   #result0 .title, #result1 .title, #result2 .title {
     position: absolute;
     width: 40px;
@@ -175,7 +189,7 @@
   #result0:hover .openPeople, #result1:hover .openPeople, #result2:hover .openPeople {
     opacity: 1; }
   #result0 .depiction, #result1 .depiction, #result2 .depiction {
-    position: relative;
+    position: absolute;
     width: 750px;
     height: auto;
     top: 220px;
@@ -184,13 +198,21 @@
     border-width: 2px;
     border-color: #f24;
     opacity: 0;
-    -webkit-transition-duration: 0.8s;
-    -o-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-    display: none; }
+    -webkit-transition-duration: 0.01s;
+    -o-transition-duration: 0.01s;
+    transition-duration: 0.01s;
+    -webkit-transition-delay: -0.3s;
+    -o-transition-delay: -0.3s;
+    transition-delay: -0.3s; }
   #result0:hover .depiction, #result1:hover .depiction, #result2:hover .depiction {
     top: 150px;
     opacity: 1;
+    -webkit-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    transition-duration: 1s;
+    -webkit-transition-delay: 0.8s;
+    -o-transition-delay: 0.8s;
+    transition-delay: 0.8s;
     display: inline-block; }
   #result0 .stars, #result1 .stars, #result2 .stars {
     position: absolute;

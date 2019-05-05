@@ -39,7 +39,6 @@ let step = [{
 let resultinfo = [{
         title: '斷捨離',
         img: '',
-        star: '',
         state: '作為減物生活最初代表著作之一，\
                 適合給不知從何下手或仰賴豐富資訊的你。</br>\
                 在本測驗推薦的三本書中，我們認為是最具邏輯性與客觀性的。</br>\
@@ -53,7 +52,6 @@ let resultinfo = [{
     {
         title: '我決定這樣簡單生活',
         img: '',
-        star: '',
         state: '2012年在日本大為暢銷的生活風格書籍，</br>\
                 在測驗中推薦的另一本書「我決定簡單的生活」</br>\
                 作者也在自己的著作內反覆提到，更強調了它出版後對極簡主義的奠基有著巨大的影響。</br>\
@@ -67,7 +65,6 @@ let resultinfo = [{
     {
         title: '怦然心動的人生整理魔法',
         img: '',
-        star: '',
         state: '「極簡主義者」的誕生代表作。</br>\
                 作者佐佐木典士是亞洲區域第一個出版分享「極簡主義」生活實際方法的人，</br>\
                 更是因為極簡主義而改變人生的證明者。</br>\
@@ -96,7 +93,7 @@ var vm = new Vue({
             type: '', //測驗結果 A
             steps: step,
             now: 0,
-            pageNow: 0,
+            pageNow: 2,
             resultinfos: resultinfo,
 
         }
@@ -218,6 +215,9 @@ var vm = new Vue({
         },
         resultId: function (result) {
             return "result" + result;
+        },
+        resultDepId: function (result) {
+            return "resultDep" + result;
         },
 
 

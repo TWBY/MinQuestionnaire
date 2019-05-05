@@ -36,10 +36,10 @@ html(lang="en")
                                 br
                                 | 僅供參考與娛樂性質，
                                 br
-                                | 希望你會喜歡
+                                | 希望你會喜歡。
                             .button(@click='start') START
                         
-            template(v-if='pageNow == 1')
+            template.questions(v-if='pageNow == 1')
                 .sidebar test
                 template(v-for='(item, index) in questions')
                     template(v-if='showItem(index)')
@@ -47,7 +47,7 @@ html(lang="en")
                             .title {{ index + 1 }}.{{ item.quest }}
                             template.number(v-for='(val, v) in item.options')
                                 input(:id="fromId(index,v)" type='radio', v-bind:value='val.type', v-model='item.selected')
-                                label.option(:for="fromId(index,v)") &emsp;&emsp; {{ v+1. }} . {{ val.q }}
+                                label.option(:for="fromId(index,v)") &emsp;&emsp; ◎ . {{ val.q }}
                                 br
                 button(@click='last', v-if='this.now > 0') 上一頁
                 button(@click='next', v-if='this.now < this.questions.length - 1') 下一頁
@@ -65,6 +65,10 @@ html(lang="en")
                         .depiction
                             .state(v-html='result.state')
                             .step  this is step
+                    //- .resultDepiction(:id="resultDepId(index)" v-for='(result, index) in resultinfos')
+                    //-     .depiction
+                    //-         .state(v-html='result.state')
+                    //-         .step  this is step
                             
 
                 //- svg#pic1(viewbox="0 0 100 100")

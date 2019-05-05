@@ -39,12 +39,17 @@
 
 
 //題目頁面
+.questions
+    +size(100%, 100%)
+    +border()
 .sidebar 
     position: absolute
+    +border()
 #question
-    display: relative
+    +border()
+    // display: relative
     left: 30%
-    margin-top: 10px
+    // margin-top: 5%
     & .title 
         margin-bottom: 20px
     & .option
@@ -62,16 +67,17 @@
     &:hover .openPeople
         opacity: 0
 
-#result0, #result1, #result2, 
+#result0, #result1, #result2 
     +border(solid, 1px, purple)
     padding: 10px
     cursor: pointer
     +size(100% / 3 , 100%)
     flex: 1 1
-    transition-duration: 1s
+    transition-duration: 1.5s
     &:hover
-        transition-duration: 1.2s
         flex: 15
+        transition-duration: 2.5s
+        transition-timing-function: ease
     & .title
         position: absolute
         +size(40px, 100% - 5%)
@@ -95,20 +101,26 @@
     &:hover .openPeople
         opacity: 1
 
-    //簡介
+    簡介
     & .depiction
-        position: relative
+        // position: relative
+        position: absolute
         +size(750px, auto)
         top: 220px
         left: 80px
         +border()
         opacity: 0
-        transition-duration: 0.8s
-        display: none
+        transition-duration: 0.01s
+        transition-delay: -0.3s
+        // transition-timing-function: ease-in
+        // display: none
     &:hover .depiction
         top: 150px
         opacity: 1
+        transition-duration: 1s
+        transition-delay: 0.8s
         display: inline-block
+        // transition-timing-function: ease-out
 
     //星星
     & .stars
@@ -124,19 +136,25 @@
             margin-left: 5%
             & img
                 +size(100%, auto)
-            
-// #result1
+
+// #resultDep0, #resultDep1, #resultDep2
 //     & .depiction
-//         left: 50px
-//     &:hover .depiction
-//         left: 80px
+//         position: absolute
+//         +size(750px, auto)
+//         top: -50px
 //         opacity: 1
-// #result2
-//     & .depiction
-//         left: -60px
+//         transition-duration: 0.8s
+//         +border()
 //     &:hover .depiction
-//         left: 80px
+//         top: -150px
 //         opacity: 1
+//         display: inline-block
+// #resultDep0
+//     right: 1000px
+// #resultDep1
+//     right: 800px
+// #resultDep2
+//     right: 600px
 
 
 
