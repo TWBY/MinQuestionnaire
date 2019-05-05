@@ -96,7 +96,7 @@ var vm = new Vue({
             type: '', //測驗結果 A
             steps: step,
             now: 0,
-            pageNow: 2,
+            pageNow: 0,
             resultinfos: resultinfo,
 
         }
@@ -187,7 +187,7 @@ var vm = new Vue({
             }
         },
         start: function () {
-            this.pagenow++;
+            this.pageNow++;
         },
         last: function () {
             this.now = this.now - 3;

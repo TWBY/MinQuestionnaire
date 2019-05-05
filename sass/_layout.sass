@@ -97,25 +97,18 @@
 
     //簡介
     & .depiction
-        position: absolute
+        position: relative
         +size(750px, auto)
         top: 220px
         left: 80px
         +border()
         opacity: 0
         transition-duration: 0.8s
-        & .state
-            // position: absolute
-            // +size(750px, auto)
-            // +border()
-            // top: 200px
-            // left: 60px
-            opacity: 1
-            transition-duration: 0.8s
+        display: none
     &:hover .depiction
         top: 150px
         opacity: 1
-
+        display: inline-block
 
     //星星
     & .stars
@@ -131,8 +124,19 @@
             margin-left: 5%
             & img
                 +size(100%, auto)
-
-
+            
+// #result1
+//     & .depiction
+//         left: 50px
+//     &:hover .depiction
+//         left: 80px
+//         opacity: 1
+// #result2
+//     & .depiction
+//         left: -60px
+//     &:hover .depiction
+//         left: 80px
+//         opacity: 1
 
 
 

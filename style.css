@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Merriweather");
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif+TC");
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -174,7 +175,7 @@
   #result0:hover .openPeople, #result1:hover .openPeople, #result2:hover .openPeople {
     opacity: 1; }
   #result0 .depiction, #result1 .depiction, #result2 .depiction {
-    position: absolute;
+    position: relative;
     width: 750px;
     height: auto;
     top: 220px;
@@ -185,15 +186,12 @@
     opacity: 0;
     -webkit-transition-duration: 0.8s;
     -o-transition-duration: 0.8s;
-    transition-duration: 0.8s; }
-    #result0 .depiction .state, #result1 .depiction .state, #result2 .depiction .state {
-      opacity: 1;
-      -webkit-transition-duration: 0.8s;
-      -o-transition-duration: 0.8s;
-      transition-duration: 0.8s; }
+    transition-duration: 0.8s;
+    display: none; }
   #result0:hover .depiction, #result1:hover .depiction, #result2:hover .depiction {
     top: 150px;
-    opacity: 1; }
+    opacity: 1;
+    display: inline-block; }
   #result0 .stars, #result1 .stars, #result2 .stars {
     position: absolute;
     left: 14%;
@@ -305,7 +303,7 @@ input[type=radio] {
     text-align: center; }
 
 * {
-  font-family: 'Merriweather', 微軟正黑體;
+  font-family: 'Merriweather', Noto Serif TC, 微軟正黑體;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   position: relative; }
