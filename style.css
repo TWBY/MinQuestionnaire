@@ -93,28 +93,38 @@
         width: 100%;
         height: 270px; }
 
-.questions {
-  width: 100%;
-  height: 100%;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #f24; }
-
 .sidebar {
   position: absolute;
   border-style: solid;
   border-width: 2px;
   border-color: #f24; }
 
-#question {
+.groupQuestion {
   border-style: solid;
   border-width: 2px;
   border-color: #f24;
+  width: 40%;
+  height: auto;
   left: 30%; }
-  #question .title {
+  .groupQuestion .title {
     margin-bottom: 20px; }
-  #question .option {
+  .groupQuestion .option {
     margin-bottom: -10px; }
+
+#ques0 {
+  margin-top: 6%; }
+
+#ques3 {
+  margin-top: 6%; }
+
+#ques6 {
+  margin-top: 6%; }
+
+#ques9 {
+  margin-top: 6%; }
+
+#ques12 {
+  margin-top: 6%; }
 
 #results {
   display: -webkit-box;
@@ -165,27 +175,16 @@
     width: 40px;
     height: 95%;
     padding-top: 20px; }
-  #result0 .people, #result0 .openPeople, #result1 .people, #result1 .openPeople, #result2 .people, #result2 .openPeople {
+  #result0 .closePeople, #result0 .openPeople, #result1 .closePeople, #result1 .openPeople, #result2 .closePeople, #result2 .openPeople {
     position: absolute;
     right: 0px;
     bottom: 0px;
     width: 250px;
     height: auto; }
-  #result0 .people, #result1 .people, #result2 .people {
-    opacity: 0; }
-  #result0 .openPeople, #result1 .openPeople, #result2 .openPeople {
-    opacity: 1;
-    -webkit-transition-delay: 0.4s;
-    -o-transition-delay: 0.4s;
-    transition-delay: 0.4s; }
-  #result0:hover .people, #result1:hover .people, #result2:hover .people {
-    -webkit-transition-duration: 0.8s;
-    -o-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-    -webkit-transition-delay: 0.3s;
-    -o-transition-delay: 0.3s;
-    transition-delay: 0.3s;
+  #result0 .closePeople, #result1 .closePeople, #result2 .closePeople {
     opacity: 1; }
+  #result0 .openPeople, #result1 .openPeople, #result2 .openPeople {
+    opacity: 0; }
   #result0:hover .openPeople, #result1:hover .openPeople, #result2:hover .openPeople {
     opacity: 1; }
   #result0 .depiction, #result1 .depiction, #result2 .depiction {
@@ -198,9 +197,6 @@
     border-width: 2px;
     border-color: #f24;
     opacity: 0;
-    -webkit-transition-duration: 0.01s;
-    -o-transition-duration: 0.01s;
-    transition-duration: 0.01s;
     -webkit-transition-delay: -0.3s;
     -o-transition-delay: -0.3s;
     transition-delay: -0.3s; }
@@ -210,19 +206,19 @@
     -webkit-transition-duration: 1s;
     -o-transition-duration: 1s;
     transition-duration: 1s;
-    -webkit-transition-delay: 0.8s;
-    -o-transition-delay: 0.8s;
-    transition-delay: 0.8s;
+    -webkit-transition-delay: 0.6s;
+    -o-transition-delay: 0.6s;
+    transition-delay: 0.6s;
     display: inline-block; }
   #result0 .stars, #result1 .stars, #result2 .stars {
     position: absolute;
-    left: 14%;
+    left: 50px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    width: 80%;
+    width: 230px;
     height: auto;
     border-style: solid;
     border-width: 2px;
@@ -233,10 +229,23 @@
       border-style: dotted;
       border-width: 0.5px;
       border-color: black;
-      margin-left: 5%; }
+      margin-left: 5%;
+      margin-top: 5%; }
       #result0 .stars .star img, #result1 .stars .star img, #result2 .stars .star img {
         width: 100%;
         height: auto; }
+  #result0 .closeStar, #result1 .closeStar, #result2 .closeStar {
+    opacity: 1; }
+  #result0 .openStar, #result1 .openStar, #result2 .openStar {
+    opacity: 0; }
+  #result0:hover .openStar, #result1:hover .openStar, #result2:hover .openStar {
+    opacity: 1; }
+
+#results:hover .closeStar {
+  opacity: 0; }
+
+#results:hover .closePeople {
+  opacity: 0; }
 
 @media screen and (max-width: 1500px) {
   .container {
@@ -301,29 +310,23 @@
   width: 100px;
   height: 600px; }
 
-#question {
-  width: 600px;
-  height: auto; }
-
 .title {
   font-size: 26px; }
 
 input[type=radio] {
   display: none; }
-  input[type=radio] + label {
-    display: block;
-    width: auto;
-    height: auto;
-    font-size: 22px; }
-    input[type=radio] + label:hover {
-      cursor: pointer; }
-  input[type=radio]:checked + label {
-    display: block;
-    width: auto;
-    height: auto;
+  input[type=radio]:checked + .labelOuter label {
     background-color: #fefbd2;
     border-radius: 50px;
     color: #505256; }
+
+.labelOuter {
+  width: auto;
+  height: 35px; }
+
+label {
+  padding: 5px 10px;
+  font-size: 22px; }
 
 .resultContainer {
   border-radius: 30px; }

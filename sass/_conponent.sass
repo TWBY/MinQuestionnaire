@@ -31,31 +31,32 @@
     max-width: 70px
 
 
-//題目
+//題目頁面
 .sidebar   
-    // +border()
     +size(100px, 600px)
-#question
-    // +border()
-    +size(600px, auto)
 .title
     font-size: 26px
 input[type=radio]
     display: none
-    + label
-        display: block
-        +size(auto, auto)
-        border:　solid 3px purple
-        font-size: 22px 
-        &:hover
+    &:checked + .labelOuter
+        // background-color: #eee
+        // border-radius: 50px
 
-            cursor: pointer
-    &:checked + label
-        display: block
-        +size(auto, auto)
-        background-color: #fefbd2
-        border-radius: 50px
-        color: #505256
+        & label
+            background-color: #fefbd2
+            border-radius: 50px
+            color: #505256
+.labelOuter
+    //+border(dotted, 2px , black)
+    +size(auto, 35px)
+
+label
+    // display: block
+    // +size(500px, auto)
+    padding: 5px 10px
+    font-size: 22px 
+    // &:hover
+    //     cursor: pointer
 
 //結果頁面
 .resultContainer

@@ -42,11 +42,13 @@
         <div class="sidebar">test</div>
         <template v-for="(item, index) in questions">
           <template v-if="showItem(index)">
-            <div id="question">       
+            <div class="groupQuestion" :id="quesId(index,v)">     
               <div class="title">{{ index + 1 }}.{{ item.quest }}</div>
               <template class="number" v-for="(val, v) in item.options">
                 <input :id="fromId(index,v)" type="radio" v-bind:value="val.type" v-model="item.selected"/>
-                <label class="option" :for="fromId(index,v)">&emsp;&emsp; ◎ . {{ val.q }}</label><br/>
+                <div class="labelOuter">
+                  <label class="option" :for="fromId(index,v)">&emsp; ◎  {{ val.q }}</label>
+                </div><br/>
               </template>
             </div>
           </template>
@@ -58,13 +60,15 @@
       <template id="result" v-if="pageNow == 2">
         <div id="results">
           <div class="resultContainer" :id="resultId(index)" v-for="(result, index) in resultinfos">
-            <div class="title">{{ result.title }} </div><img class="openPeople" src="logo.png" alt=""/><img class="people" src="logo.png" alt=""/>
-            <div class="stars">
+            <div class="title">{{ result.title }} </div><img class="closePeople" src="logo.png" alt=""/><img class="openPeople" src="logo.png" alt=""/>
+            <div class="stars closeStar">
+              <div class="star" v-for="item in showStar(index)"> <img src="logo.png" alt=""/></div>
+            </div>
+            <div class="stars openStar">
               <div class="star" v-for="item in showStar(index)"> <img src="logo.png" alt=""/></div>
             </div>
             <div class="depiction">
               <div class="state" v-html="result.state"></div>
-              <div class="step"> this is step</div>
             </div>
           </div>
         </div>
