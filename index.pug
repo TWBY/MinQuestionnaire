@@ -60,8 +60,8 @@ html(lang="en")
                 #results
                     .resultContainer(:id="resultId(index)" v-for='(result, index) in resultinfos')
                         .title {{ result.title }} 
-                        img.closePeople(src="logo.png", alt="")
-                        img.openPeople(src="logo.png", alt="")
+                        img.closePeople(src="peopleOne.png", alt="")
+                        img.openPeople(src="peopleOne.png", alt="")
                         .stars.closeStar
                             .star(v-for='item in showStar(index)') 
                                 img(src="logo.png", alt="")
